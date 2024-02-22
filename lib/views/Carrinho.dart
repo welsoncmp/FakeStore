@@ -33,7 +33,6 @@ class CarrinhoView extends ConsumerWidget {
                 trailing: IconButton(
                   icon: Image.asset("assets/icons/delete.png", width: 30),
                   onPressed: () {
-                    final item = cart.firstWhere((item) => item.produto == produto);
                     ref.read(carrinhoControllerProvider.notifier).removeFromCart(produto);
                   },
                 ),
