@@ -100,9 +100,9 @@ class _InicioState extends State<Inicio> {
           children: [
             Carousel.CarouselWidget(
               imagens: [
-                'https://manager.marketsapp.com.br/storage/empresas/29/banners/655980895a759.png',
-                'https://manager.marketsapp.com.br/storage/empresas/29/banners/655980abc400d.png',
-                'https://manager.marketsapp.com.br/storage/empresas/29/banners/6559809e7bbdc.png'
+                'assets/images/banner01.png',
+                'assets/images/banner02.png',
+                'assets/images/banner03.png'
               ],
               icone: [],
               texto: [],

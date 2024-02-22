@@ -26,7 +26,7 @@ class _CarouselWidgetState extends State<CarouselWidget> {
             borderRadius: BorderRadius.all(Radius.circular(10)),
             color: Colors.white70,
             image: DecorationImage(
-              image: NetworkImage(imagem),
+              image: AssetImage(imagem),
               fit: BoxFit.cover,
             ),
           ),
