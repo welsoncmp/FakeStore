@@ -3,6 +3,7 @@ import 'package:fakestore/views/ListaDesejos.dart';
 import 'package:flutter/material.dart';
 import 'package:fakestore/views/Conta.dart';
 import 'package:fakestore/views/Produtos.dart';
+import 'CarouselSlider.dart' as Carousel;
 
 
 class Inicio extends StatefulWidget {
@@ -92,9 +93,25 @@ class _InicioState extends State<Inicio> {
                 icon: const Icon(Icons.search, color: Colors.white,)
             )
           ],
-          backgroundColor: Colors.indigo
+          backgroundColor: Colors.redAccent
       ),
-      body: _telas[_paginaAtual],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Carousel.CarouselWidget(
+              imagens: [
+                'https://manager.marketsapp.com.br/storage/empresas/29/banners/655980895a759.png',
+                'https://manager.marketsapp.com.br/storage/empresas/29/banners/655980abc400d.png',
+                'https://manager.marketsapp.com.br/storage/empresas/29/banners/6559809e7bbdc.png'
+              ],
+              icone: [],
+              texto: [],
+            ),
+            _telas[_paginaAtual],
+          ],
+        ),
+      ),
+
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _paginaAtual,
           onTap: (index){
@@ -111,3 +128,8 @@ class _InicioState extends State<Inicio> {
     );
   }
 }
+
+
+
+
+

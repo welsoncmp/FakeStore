@@ -28,6 +28,8 @@ class _ProdutosState extends State<Produtos> {
         } else {
           final produtos = snapshot.data!;
           return GridView.builder(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2, // Número de colunas
               childAspectRatio: 0.6, // Ajuste a proporção conforme necessário
