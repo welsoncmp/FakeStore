@@ -1,4 +1,4 @@
-import 'package:fakestore/views/Carrinho.dart';
+import 'package:fakestore/controllers/CarrinhoController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -15,11 +15,15 @@ class _ExibirProdutoState extends State<ExibirProduto> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white), // Defina a cor aqui
+          onPressed: () => Navigator.of(context).pop(),
+        ),
         backgroundColor: Colors.indigo,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Text("FakeStore"),
+            Text("FakeStore", style: TextStyle(color: Colors.white),),
           ],
         ),
       ),
@@ -44,14 +48,18 @@ class _ExibirProdutoState extends State<ExibirProduto> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('R\$ ${widget.result.price.toStringAsFixed(2)}', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black54),),
-
+                      Row(
+                        children: [
+                          Image.asset('assets/icons/brazilian-real-moeda.png', width: 30,),
+                          Text('${widget.result.price.toStringAsFixed(2)}', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black54),),
+                        ],
+                      ),
                       Consumer(builder: (context, ref, child) {
                         return IconButton(
                           onPressed: () {
-                            ref.read(cartProvider.notifier).addToCart(widget.result);
+                            ref.read(carrinhoControllerProvider.notifier).addToCart(widget.result);
                           },
-                          icon: Icon(Icons.add_shopping_cart),
+                          icon: Image.asset('assets/icons/cart.png', width: 30,),
                         );
                       }),
 

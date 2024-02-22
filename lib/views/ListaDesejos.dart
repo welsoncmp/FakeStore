@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fakestore/controllers/CarrinhoController.dart';
+import 'package:fakestore/controllers/DesejoController.dart';
 
-class CarrinhoView extends ConsumerWidget {
+class ListaDesejos extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final cart = ref.watch(carrinhoControllerProvider);
+    final listaDesejos = ref.watch(desejoControllerProvider);
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Lista de Desejos'),
+      ),
       body: ListView.builder(
-        itemCount: cart.length,
+        itemCount: listaDesejos.length,
         itemBuilder: (context, index) {
-          final produto = cart[index].produto!;
+          final produto = listaDesejos[index].produto;
           return Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
@@ -33,8 +36,7 @@ class CarrinhoView extends ConsumerWidget {
                 trailing: IconButton(
                   icon: Image.asset("assets/icons/delete.png", width: 30),
                   onPressed: () {
-                    final item = cart.firstWhere((item) => item.produto == produto);
-                    ref.read(carrinhoControllerProvider.notifier).removeFromCart(produto);
+                    ref.read(desejoControllerProvider.notifier).removeFromWishlist(produto);
                   },
                 ),
               ),
