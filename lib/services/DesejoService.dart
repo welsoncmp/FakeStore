@@ -1,3 +1,4 @@
+import 'package:fakestore/models/Produto.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fakestore/models/Desejo.dart';
 
@@ -14,5 +15,9 @@ class DesejoService {
 
   void removerDesejo(Desejo desejo) {
     _listaDesejos.remove(desejo);
+  }
+
+  bool isOnWishlist(Produto produto) {
+    return _listaDesejos.any((desejo) => desejo.produto.id == produto.id);
   }
 }

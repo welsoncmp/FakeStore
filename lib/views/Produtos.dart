@@ -2,6 +2,7 @@ import 'package:fakestore/controllers/CarrinhoController.dart';
 import 'package:fakestore/controllers/DesejoController.dart';
 import 'package:fakestore/controllers/ProdutoController.dart';
 import 'package:fakestore/models/Produto.dart';
+import 'package:fakestore/views/showSnackBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'Produto.dart';
@@ -64,7 +65,7 @@ class _ProdutosState extends State<Produtos> {
                                           left: star == 0 ? 10 : 0,
                                         ),
                                         child: GestureDetector(
-                                            onTap: (){_showSnackBar('Item Avaliado');},
+                                            onTap: (){showSnackBar(context, 'Item Avaliado');},
                                             child: Icon(Icons.star, color: Colors.yellow, size: 15,)),
                                       );
                                     }),
@@ -74,14 +75,26 @@ class _ProdutosState extends State<Produtos> {
                               ),
 
                               Consumer(builder: (context, ref, child) {
-                                return IconButton(
-                                  onPressed: () {
-                                    ref.read(desejoControllerProvider.notifier).addToWishlist(produto);
-                                    _showSnackBar('Desejo Adicionado');
+                                return StatefulBuilder(
+                                  builder: (BuildContext context, StateSetter setState) {
+                                    bool isOnWishlist = ref.watch(desejoControllerProvider.notifier).isOnWishlist(produto);
+
+                                    return IconButton(
+                                        onPressed:() {
+                                          if(!isOnWishlist){
+                                            ref.read(desejoControllerProvider.notifier).addToWishlist(produto);
+                                            showSnackBar(context, 'Desejo Adicionado');
+                                          }else{
+                                            showSnackBar(context, 'Desejo Já Existe');
+                                          }
+                                          setState(() {});
+                                        },
+                                        icon: Image.asset('assets/icons/heart.png', width: 25, color: isOnWishlist ? Colors.red : Colors.white)
+                                    );
                                   },
-                                  icon: Image.asset('assets/icons/heart.png', width: 25,),
                                 );
                               }),
+
                             ],
                           )// Adicionado fit: BoxFit.cover para ajustar a imagem
                         ),
@@ -107,13 +120,23 @@ class _ProdutosState extends State<Produtos> {
                                 ),
                               ),
                               Consumer(builder: (context, ref, child) {
-                                return IconButton(
-                                  onPressed: () {
-                                    ref.read(carrinhoControllerProvider.notifier).addToCart(produto);
-                                    _showSnackBar('Adicionado ao carrinho');
-                                  },
-                                  icon: Image.asset('assets/icons/cart.png', width: 25,),
-                                );
+                                return StatefulBuilder(
+                                  builder: (BuildContext context, StateSetter setState) {
+                                    bool isOncart = ref.watch(carrinhoControllerProvider.notifier).isOnCart(produto);
+                                    print(isOncart);
+                                  return IconButton(
+                                    onPressed: () {
+                                      if(!isOncart){
+                                        ref.read(carrinhoControllerProvider.notifier).addToCart(produto);
+                                        showSnackBar(context, 'Adicionado ao carrinho');
+                                      }else{
+                                        showSnackBar(context, 'Já existe no carrinho');
+                                      }
+                                      setState(() {});
+                                    },
+                                    icon: Image.asset('assets/icons/cart.png', width: 25,),
+                                  );
+                                },);
                               }),
                             ],
                           ),
@@ -130,30 +153,5 @@ class _ProdutosState extends State<Produtos> {
       },
     );
   }
-
-  void _showSnackBar(String? mensagem) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Center(
-          child: Text(
-            '$mensagem',
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-        ),
-        duration: Duration(seconds: 2),
-        backgroundColor: Colors.black12,
-        elevation: 3,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(50), topRight: Radius.circular(50)),
-          side: BorderSide(color: Colors.white),
-        ),
-      ),
-    );
-  }
-
-
-
-
-
 
 }

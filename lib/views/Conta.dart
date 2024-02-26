@@ -28,17 +28,20 @@ class _ContaState extends State<Conta> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _usuario != null
-          ? SingleChildScrollView(
+      body: _usuario != null ? SingleChildScrollView(
         child: Stack(
           alignment: Alignment.topCenter,
           children: [
             AspectRatio(
               aspectRatio: 1,
-              child: Image.network("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700386918.jpg", fit: BoxFit.cover),
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(image: AssetImage('assets/images/background.jpg'), fit: BoxFit.cover),
+                ),
+              ),
             ),
             Container(
-              margin: const EdgeInsets.only(top: 360, right: 10, left: 10),
+              margin: const EdgeInsets.only(top: 195, right: 10, left: 10),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -58,25 +61,24 @@ class _ContaState extends State<Conta> {
                 padding: EdgeInsets.only(top: 50, bottom: 50),
                 child: Column(
                   children: [
-                    _informacoesUsuario(_usuario!.name, Icons.account_circle),
-                    _informacoesUsuario(_usuario!.email, Icons.email),
-                    _informacoesUsuario(_usuario!.phone, Icons.phone),
-                    _informacoesUsuario(_usuario!.address, Icons.pin_drop),
-                    _informacoesUsuario(_usuario!.username, Icons.manage_accounts),
-                    _informacoesUsuario(_usuario!.firstname, Icons.account_box),
-                    _informacoesUsuario(_usuario!.lastname, Icons.account_box),
-                    _informacoesUsuario(_usuario!.city, Icons.location_city),
-                    _informacoesUsuario(_usuario!.street, Icons.streetview),
-                    _informacoesUsuario(_usuario!.number.toString(), Icons.numbers),
-                    _informacoesUsuario(_usuario!.zipcode, Icons.park_outlined)
+                    _informacoesUsuario(_usuario!.name, 'Nome: ', Icons.account_circle),
+                    _informacoesUsuario(_usuario!.email, 'E-mail: ',  Icons.email),
+                    _informacoesUsuario(_usuario!.phone, 'Telefone: ',  Icons.phone),
+                    _informacoesUsuario(_usuario!.username, 'Usuário: ',  Icons.manage_accounts),
+                    _informacoesUsuario(_usuario!.firstname, 'Primeiro Nome: ',  Icons.account_box),
+                    _informacoesUsuario(_usuario!.lastname, 'Último Nome: ',  Icons.account_box),
+                    _informacoesUsuario(_usuario!.city, 'Cidade: ',  Icons.location_city),
+                    _informacoesUsuario(_usuario!.street, 'Bairro: ',  Icons.streetview),
+                    _informacoesUsuario(_usuario!.number.toString(), 'Número: ',  Icons.numbers),
+                    _informacoesUsuario(_usuario!.zipcode, 'CEP: ',  Icons.park_outlined)
                   ],
                 ),
               ),
             ),
             Positioned(
-              top: 192,
+              top: 27,
               child: ClipOval(
-                child: Image.network("https://cdn-icons-png.flaticon.com/512/3001/3001758.png", fit: BoxFit.cover, width: 200),
+                child: Image.asset("assets/icons/user.png", fit: BoxFit.cover, width: 200),
               ),
             ),
           ],
@@ -86,7 +88,7 @@ class _ContaState extends State<Conta> {
     );
   }
 
-  Widget _informacoesUsuario(String? info, IconData icon) {
+  Widget _informacoesUsuario(String? info, String? labelText, IconData icon) {
     return Padding(
       padding: EdgeInsets.only(left: 15, right: 10, bottom: 5, top: 10),
       child: Row(
@@ -101,6 +103,7 @@ class _ContaState extends State<Conta> {
                 style: TextStyle(fontSize: 16),
                 enabled: false,
                 decoration: InputDecoration(
+                  labelText: labelText,
                   border: OutlineInputBorder(),
                 ),
               ),

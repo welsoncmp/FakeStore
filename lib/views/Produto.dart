@@ -1,4 +1,5 @@
 import 'package:fakestore/controllers/CarrinhoController.dart';
+import 'package:fakestore/views/showSnackBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -54,15 +55,26 @@ class _ExibirProdutoState extends State<ExibirProduto> {
                           Text('${widget.result.price.toStringAsFixed(2)}', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black54),),
                         ],
                       ),
-                      Consumer(builder: (context, ref, child) {
-                        return IconButton(
-                          onPressed: () {
-                            ref.read(carrinhoControllerProvider.notifier).addToCart(widget.result);
-                          },
-                          icon: Image.asset('assets/icons/cart.png', width: 30,),
-                        );
-                      }),
 
+                      Consumer(builder: (context, ref, child) {
+                        return StatefulBuilder(
+                          builder: (BuildContext context, StateSetter setState) {
+                            bool isOncart = ref.watch(carrinhoControllerProvider.notifier).isOnCart(widget.result);
+                            print(isOncart);
+                            return IconButton(
+                              onPressed: () {
+                                if(!isOncart){
+                                  ref.read(carrinhoControllerProvider.notifier).addToCart(widget.result);
+                                  showSnackBar(context, 'Adicionado ao carrinho');
+                                }else{
+                                  showSnackBar(context, 'Já existe no carrinho');
+                                }
+                                setState(() {});
+                              },
+                              icon: Image.asset('assets/icons/cart.png', width: 25,),
+                            );
+                          },);
+                      }),
                     ],
                   ),
                 ),

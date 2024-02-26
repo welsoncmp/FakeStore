@@ -13,6 +13,10 @@ class CarrinhoController extends StateNotifier<List<Carrinho>> {
 
   CarrinhoController(this._carrinhoService) : super([]);
 
+  bool isOnCart(Produto produto){
+    return _carrinhoService.isOnCart(produto);
+  }
+
   void addToCart(Produto produto) {
     final item = Carrinho(produto: produto);
     _carrinhoService.adicionarProduto(item);

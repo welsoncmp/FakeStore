@@ -1,3 +1,4 @@
+import 'package:fakestore/models/Produto.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fakestore/models/Carrinho.dart';
 
@@ -14,5 +15,9 @@ class CarrinhoService {
 
   void removerProduto(Carrinho carrinho) {
     _listaProdutos.remove(carrinho);
+  }
+
+  bool isOnCart(Produto produto){
+    return _listaProdutos.any((carrinho) => carrinho.produto!.id == produto.id);
   }
 }

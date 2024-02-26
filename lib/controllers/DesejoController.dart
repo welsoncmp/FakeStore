@@ -13,6 +13,10 @@ class DesejoController extends StateNotifier<List<Desejo>> {
 
   DesejoController(this._desejoService) : super([]);
 
+  bool isOnWishlist(Produto produto) {
+    return _desejoService.isOnWishlist(produto);
+  }
+
   void addToWishlist(Produto produto) {
     final desejo = Desejo(produto: produto);
     _desejoService.adicionarDesejo(desejo);

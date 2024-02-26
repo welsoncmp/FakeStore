@@ -95,7 +95,7 @@ class _InicioState extends State<Inicio> {
           ],
           backgroundColor: Colors.redAccent
       ),
-      body: SingleChildScrollView(
+      body: _paginaAtual == 0 ? _telas[_paginaAtual] : SingleChildScrollView(
         child: Column(
           children: [
             Carousel.CarouselWidget(
