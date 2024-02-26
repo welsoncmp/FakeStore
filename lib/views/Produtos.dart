@@ -123,7 +123,6 @@ class _ProdutosState extends State<Produtos> {
                                 return StatefulBuilder(
                                   builder: (BuildContext context, StateSetter setState) {
                                     bool isOncart = ref.watch(carrinhoControllerProvider.notifier).isOnCart(produto);
-                                    print(isOncart);
                                   return IconButton(
                                     onPressed: () {
                                       if(!isOncart){

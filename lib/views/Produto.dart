@@ -60,7 +60,6 @@ class _ExibirProdutoState extends State<ExibirProduto> {
                         return StatefulBuilder(
                           builder: (BuildContext context, StateSetter setState) {
                             bool isOncart = ref.watch(carrinhoControllerProvider.notifier).isOnCart(widget.result);
-                            print(isOncart);
                             return IconButton(
                               onPressed: () {
                                 if(!isOncart){
