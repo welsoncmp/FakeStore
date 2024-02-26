@@ -20,7 +20,7 @@ class _ExibirProdutoState extends State<ExibirProduto> {
           icon: Icon(Icons.arrow_back, color: Colors.white), // Defina a cor aqui
           onPressed: () => Navigator.of(context).pop(),
         ),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.redAccent,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
