@@ -15,12 +15,12 @@ https://github.com/welsoncmp/FakeStore/assets/42895405/c99930ae-c1e6-4fe4-ad3a-4
 
 Telas:
 
-![04](https://github.com/welsoncmp/FakeStore/assets/42895405/29893057-0edd-4221-abe4-884de2187f10)
+![01](https://github.com/welsoncmp/FakeStore/assets/42895405/eee597a9-822a-4bf5-824b-cc8c876e6ae2)
 
 ![03](https://github.com/welsoncmp/FakeStore/assets/42895405/12c358d6-e653-4740-a71c-3b8495dcb66d)
 
-![02](https://github.com/welsoncmp/FakeStore/assets/42895405/a5b9e239-f12e-4aeb-8e2c-e71f2552ecf8)
+![04](https://github.com/welsoncmp/FakeStore/assets/42895405/29893057-0edd-4221-abe4-884de2187f10)
 
-![01](https://github.com/welsoncmp/FakeStore/assets/42895405/eee597a9-822a-4bf5-824b-cc8c876e6ae2)
+![02](https://github.com/welsoncmp/FakeStore/assets/42895405/a5b9e239-f12e-4aeb-8e2c-e71f2552ecf8)
 
 ![05](https://github.com/welsoncmp/FakeStore/assets/42895405/f380dccc-1f22-432e-a921-bcfaa1703a3e)
