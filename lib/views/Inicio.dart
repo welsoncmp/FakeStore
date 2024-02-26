@@ -120,9 +120,9 @@ class _InicioState extends State<Inicio> {
             });
           },
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: 'Conta'),
-            BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Inicio'),
-            BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_sharp), label: 'Carrinho'),
+            BottomNavigationBarItem(icon: Icon(Icons.account_circle, color: Colors.redAccent), label: 'Conta'),
+            BottomNavigationBarItem(icon: Icon(Icons.home_filled, color: Colors.redAccent), label: 'Inicio'),
+            BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_sharp, color: Colors.redAccent), label: 'Carrinho'),
           ]
       ),
     );
