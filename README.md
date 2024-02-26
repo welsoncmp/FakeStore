@@ -10,17 +10,18 @@ Com a FakeStore API, este projeto demonstra como é possível criar uma loja de 
 
 Video demonstrativo:
 
-https://github.com/welsoncmp/FakeStore/assets/42895405/c99930ae-c1e6-4fe4-ad3a-46c71e3f4694
+https://github.com/welsoncmp/FakeStore/assets/42895405/a89f5faa-c0f1-4a7d-ac61-457c9c63356b
 
 
 Telas:
 
-![01](https://github.com/welsoncmp/FakeStore/assets/42895405/eee597a9-822a-4bf5-824b-cc8c876e6ae2)
+![01](https://github.com/welsoncmp/FakeStore/assets/42895405/556fa6a9-b571-4c11-8bd1-3bb4e2eea3e0)
+![02](https://github.com/welsoncmp/FakeStore/assets/42895405/28b68106-6014-40c7-affa-ae32cbf66612)
+![03](https://github.com/welsoncmp/FakeStore/assets/42895405/714c785b-ee68-4b0e-a699-39b92acbab04)
+![04](https://github.com/welsoncmp/FakeStore/assets/42895405/976e0786-f1e5-4d14-a575-2546dfaaa5a3)
+![06](https://github.com/welsoncmp/FakeStore/assets/42895405/d3826f86-b5d3-434d-b3eb-4404adfdbbd8)
+![05](https://github.com/welsoncmp/FakeStore/assets/42895405/e9055bc9-59b7-49af-b58f-d2b5bf6f850b)
 
-![03](https://github.com/welsoncmp/FakeStore/assets/42895405/12c358d6-e653-4740-a71c-3b8495dcb66d)
 
-![04](https://github.com/welsoncmp/FakeStore/assets/42895405/29893057-0edd-4221-abe4-884de2187f10)
 
-![02](https://github.com/welsoncmp/FakeStore/assets/42895405/a5b9e239-f12e-4aeb-8e2c-e71f2552ecf8)
 
-![05](https://github.com/welsoncmp/FakeStore/assets/42895405/f380dccc-1f22-432e-a921-bcfaa1703a3e)
